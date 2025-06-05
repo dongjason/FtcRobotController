@@ -212,7 +212,8 @@ public class FtcRobotControllerActivity extends Activity
 
     if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(intent.getAction())) {
       UsbDevice usbDevice = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
-      RobotLog.vv(TAG, "ACTION_USB_DEVICE_ATTACHED: %s", usbDevice.getDeviceName());
+      RobotLog.vv(TAG, "ACTION_USB_DEVICE_ATTACHED: %s",
+              usbDevice != null ? usbDevice.getDeviceName() : "null");
 
       if (usbDevice != null) {  // paranoia
         // We might get attachment notifications before the event loop is set up, so
